@@ -1,8 +1,23 @@
-export const MovieView = ({ movie, onBackClick }) => {
+// Movie View Component
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
+import "./movie-view.scss";
+
+export const MovieView = ({ movies }) => {
+  const { title } = useParams(); // Get the title parameter from the URL
+
+  // Find the movie by matching its title
+  const movie = movies.find((b) => b.Title === decodeURIComponent(title));
+
+  // Check if movie exists before accessing its properties
+  if (!movie) {
+    return <div>Movie not found!</div>;
+  }
+
   return (
     <div>
       <div>
-        <img src={movie.imageurl} />
+        <img src={movie.imageurl} alt={movie.Title} />
       </div>
       <div>
         <span>Title: </span>
@@ -20,7 +35,9 @@ export const MovieView = ({ movie, onBackClick }) => {
         <span>Description: </span>
         <span>{movie.description}</span>
       </div>
-      <button onClick={onBackClick}>Back</button>
+      <Link to={`/`}>
+        <button className="back-button">Back</button>
+      </Link>
     </div>
   );
 };

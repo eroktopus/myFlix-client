@@ -9,35 +9,38 @@ export const MovieView = ({ movies }) => {
   // Find the movie by matching its title
   const movie = movies.find((b) => b.Title === decodeURIComponent(title));
 
-  // Check if movie exists before accessing its properties
   if (!movie) {
     return <div>Movie not found!</div>;
   }
 
   return (
-    <div>
-      <div>
+    <div style={{ marginBottom: '20px' }}>
+      <div style={{ marginTop: '10px' }}>
         <img src={movie.imageurl} alt={movie.Title} />
       </div>
-      <div>
-        <span>Title: </span>
-        <span>{movie.Title}</span>
+      <div style={{ marginTop: '20px' }}>
+        <strong>Title: </strong>
+        <strong>{movie.Title}</strong>
       </div>
+  
       <div>
-        <span>Director: </span>
+        <strong>Director: </strong>
         <span>{movie.Director}</span>
       </div>
       <div>
-        <span>Genre: </span>
+        <strong>Genre: </strong>
         <span>{movie.Genre}</span>
       </div>
       <div>
-        <span>Description: </span>
+        <strong>Description: </strong>
         <span>{movie.description}</span>
       </div>
-      <Link to={`/`}>
-        <button className="back-button">Back</button>
-      </Link>
+      <div style={{ marginTop: '10px' }}>
+        <Link to={`/`} className="back-link">
+          <button className="back-button btn btn-primary">Back</button>
+        </Link>
+      </div>
     </div>
   );
-};
+  }  
+  

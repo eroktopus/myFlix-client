@@ -17,15 +17,15 @@ export const SignupView = () => {
       Username: username,
       Password: password,
       Email: email,
-      Birthday: birthday
+      Birthday: birthday,
     };
 
-    fetch("SIGNUP_URL", {
+    fetch("https://fierce-fortress-37859-bd3c98eebee1.herokuapp.com/users", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     }).then((response) => {
       if (response.ok) {
         alert("Signup successful");
@@ -37,7 +37,7 @@ export const SignupView = () => {
   };
 
   return (
-    <div className="signup-container"> {/* Add padding top here */}
+    <div className="signup-container">
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formUsername">
           <Form.Label>Username:</Form.Label>

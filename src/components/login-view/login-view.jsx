@@ -40,7 +40,7 @@ export const LoginView = ({ onLoggedIn }) => {
   };
 
   return (
-    <div className="login-container"> {/* Add padding top here */}
+    <div className="login-container">
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formUsername">
           <Form.Label>Username:</Form.Label>

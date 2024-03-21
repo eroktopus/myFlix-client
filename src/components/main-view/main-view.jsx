@@ -4,6 +4,7 @@ import { MovieView } from "../movie-view/movie-view";
 import { LoginView } from "../login-view/login-view";
 import { SignupView } from "../signup-view/signup-view";
 import { NavigationBar } from "../navigation-bar/navigation-bar";
+import { ProfileView } from "../profile-view/profile-view";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
@@ -15,6 +16,29 @@ export const MainView = () => {
   const [token, setToken] = useState(storedToken ? storedToken : null);
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
+  
+  const handleAddToFavorites = async (movie) => {
+    try {
+      const response = await fetch('https://fierce-fortress-37859-bd3c98eebee1.herokuapp.com/users/${user.Username}/movies/${movie._id', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify({ movieId: movie._id }) 
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to add movie to favorites');
+      }
+  
+      const updatedFavoriteMovies = await response.json();
+     
+      console.log('Movie added to favorites:', movie.Title);
+    } catch (error) {
+      console.error('Error adding movie to favorites:', error);
+    }
+  };
 
   useEffect(() => {
     if (!token) return;
@@ -66,6 +90,10 @@ export const MainView = () => {
               </>
             }
           />
+         <Route 
+            path="/profile" 
+            element={<ProfileView token={token} onAddToFavorites={handleAddToFavorites} />} />
+      
           <Route
             path="/movies/:title"
             element={
@@ -99,6 +127,7 @@ export const MainView = () => {
                           onMovieClick={(newSelectedMovie) => {
                             setSelectedMovie(newSelectedMovie);
                           }}
+                          onAddToFavorites={handleAddToFavorites} 
                         />
                       </Col>
                     ))}
@@ -112,4 +141,3 @@ export const MainView = () => {
     </BrowserRouter>
   );
 };
-

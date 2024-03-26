@@ -27291,42 +27291,32 @@ const MovieCard = ({ movie, onAddToFavorites })=>{
                     src: movie.imageurl
                 }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 19,
-                    columnNumber: 7
+                    lineNumber: 31,
+                    columnNumber: 9
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Body, {
-                    children: [
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
-                            className: "text-dark",
-                            children: movie.Title
-                        }, void 0, false, {
-                            fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 21,
-                            columnNumber: 9
-                        }, undefined),
-                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Text, {
-                            className: "text-dark",
-                            children: director
-                        }, void 0, false, {
-                            fileName: "src/components/movie-card/movie-card.jsx",
-                            lineNumber: 22,
-                            columnNumber: 9
-                        }, undefined)
-                    ]
-                }, void 0, true, {
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Card).Title, {
+                        className: "text-dark",
+                        children: movie.Title
+                    }, void 0, false, {
+                        fileName: "src/components/movie-card/movie-card.jsx",
+                        lineNumber: 33,
+                        columnNumber: 11
+                    }, undefined)
+                }, void 0, false, {
                     fileName: "src/components/movie-card/movie-card.jsx",
-                    lineNumber: 20,
-                    columnNumber: 7
+                    lineNumber: 32,
+                    columnNumber: 9
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/components/movie-card/movie-card.jsx",
-            lineNumber: 18,
-            columnNumber: 5
+            lineNumber: 25,
+            columnNumber: 7
         }, undefined)
     }, void 0, false, {
         fileName: "src/components/movie-card/movie-card.jsx",
-        lineNumber: 17,
+        lineNumber: 21,
         columnNumber: 5
     }, undefined);
 };
@@ -27337,7 +27327,7 @@ MovieCard.propTypes = {
         imageurl: (0, _propTypesDefault.default).string.isRequired,
         Director: (0, _propTypesDefault.default).oneOfType([
             (0, _propTypesDefault.default).string,
-            (0, _propTypesDefault.default).arrayOf((0, _propTypesDefault.default).string) // Allow Director to be an array
+            (0, _propTypesDefault.default).arrayOf((0, _propTypesDefault.default).string)
         ]).isRequired
     }).isRequired,
     onAddToFavorites: (0, _propTypesDefault.default).func.isRequired
@@ -48431,22 +48421,23 @@ const ProfileView = ({ user, handleAddToFavorites, movies })=>{
                         style: {
                             display: "flex",
                             flexWrap: "wrap",
-                            justifyContent: "space-between",
+                            justifyContent: "flex-start",
                             width: "100%",
                             marginBottom: "20px",
                             marginTop: "10px"
                         },
                         children: favoriteMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 style: {
-                                    flex: "0 0 calc(25% - 10px)",
-                                    marginBottom: "10px"
+                                    flex: "0 0 calc(25% - 20px)",
+                                    marginBottom: "10px",
+                                    marginRight: "20px"
                                 },
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                                     movie: movie,
                                     onAddToFavorites: ()=>handleAddToFavorites(movie._id)
                                 }, void 0, false, {
                                     fileName: "src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 138,
+                                    lineNumber: 139,
                                     columnNumber: 15
                                 }, undefined)
                             }, movie._id, false, {

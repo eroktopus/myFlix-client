@@ -121,7 +121,7 @@ export const ProfileView = ({ user, handleAddToFavorites, movies }) => {
           style={{
             display: "flex",
             flexWrap: "wrap",
-            justifyContent: "space-between",
+            justifyContent: "flex-start", // Change to flex-start
             width: "100%",
             marginBottom: "20px",
             marginTop: "10px",
@@ -131,8 +131,9 @@ export const ProfileView = ({ user, handleAddToFavorites, movies }) => {
             <div
               key={movie._id}
               style={{
-                flex: "0 0 calc(25% - 10px)", // 25% width with some space between
+                flex: "0 0 calc(25% - 20px)", // 25% width with 20px space between cards
                 marginBottom: "10px", // Add margin to create space between cards
+                marginRight: "20px", // Add right margin for space between cards
               }}
             >
               <MovieCard

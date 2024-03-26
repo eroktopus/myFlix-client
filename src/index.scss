@@ -1,5 +1,10 @@
-$color: steelblue;
+$body-bg: rgb(88, 92, 88);
 
-.my-flix {
-  color: $color;
+
+@import '~bootstrap/scss/bootstrap.scss';
+
+
+body {
+  background-color: $body-bg; // Use the custom variable here
+  padding-top: 20px;
 }
